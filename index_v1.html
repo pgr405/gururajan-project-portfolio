@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gururajan Padmanaban - AI & Software Engineering Portfolio</title>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Basic Reset & Defaults */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+             scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa; /* Light grey background */
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 0.8em;
+            color: #2c3e50; /* Dark blue-grey */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 0.2em;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid #3498db; /* Accent color */
+            padding-bottom: 0.3em;
+            margin-top: 0.3em; /* Spacing between sections */
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: #3498db; /* Accent color for card titles */
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            color: #555;
+        }
+
+        p {
+            margin-bottom: 1em;
+            color: #555;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 25px;
+            margin-bottom: 1em;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        strong {
+            font-weight: 700;
+            color: #333;
+        }
+
+        code {
+            background-color: #e9ecef;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #c7254e; /* Pinkish color for code */
+        }
+
+        a {
+             color: #3498db;
+             text-decoration: none;
+             transition: color 0.2s ease;
+        }
+        a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .portfolio-header {
+            background: linear-gradient(to right, #3498db, #2980b9); /* Blue gradient */
+            color: #fff;
+            padding: 3em 1em;
+            text-align: center;
+            margin-bottom: 2em;
+        }
+        .portfolio-header p {
+            color: #ecf0f1; /* Light text color */
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+
+        /* Main Gallery Layout */
+        .portfolio-gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1em; /* Padding on sides */
+        }
+
+        .project-group {
+            margin-bottom: 3em;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 1.5em; /* Space between cards */
+            margin-top: 1.5em;
+        }
+
+        /* Project Card Styling */
+        .project-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Contain content */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex; /* Make card a flex container */
+            flex-direction: column; /* Stack content vertically */
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-content {
+            padding: 1.5em;
+            flex-grow: 1; /* Allow content to expand */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            font-size: 1.2rem; /* Slightly smaller card title */
+        }
+        .project-card h3 i { /* Icon styling */
+            margin-right: 0.5em;
+            color: #3498db;
+            opacity: 0.8;
+            width: 1.2em; /* Ensure consistent icon spacing */
+            text-align: center;
+        }
+
+        .project-card .brief {
+            font-size: 0.95rem;
+            color: #666;
+            flex-grow: 1; /* Push tags/button down */
+            margin-bottom: 1em;
+        }
+
+        /* Tags Styling */
+        .tags {
+            margin-bottom: 1em;
+            flex-wrap: wrap; /* Allow tags to wrap */
+            display: flex; /* Use flex for inline-block like behavior with gaps */
+            gap: 0.5em;
+        }
+
+        .tags span {
+            display: inline-block;
+            background-color: #e0e0e0; /* Light grey tag background */
+            color: #555; /* Darker grey text */
+            padding: 0.3em 0.8em;
+            border-radius: 15px; /* Pill shape */
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .tags span:nth-child(odd) { /* Slightly different color for variety */
+             background-color: #d1e7fd; /* Light blue */
+             color: #0a58ca; /* Darker blue */
+        }
+
+
+        /* Details Button */
+        .details-btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 0.6em 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            align-self: flex-start; /* Align button to the start */
+            margin-top: auto; /* Push button to bottom if needed */
+        }
+
+        .details-btn:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+        }
+
+        /* Modal Styling */
+        #modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+            z-index: 1000; /* Below modal, above content */
+            display: none; /* Hidden by default */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #modal-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95); /* Start slightly smaller */
+            background-color: #fff;
+            padding: 2.5em;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 1001; /* Above overlay */
+            max-width: 90%;
+            width: 750px; /* Adjusted width */
+            max-height: 85vh; /* Limit height */
+            overflow-y: auto; /* Allow scrolling within modal */
+            display: none; /* Hidden by default */
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .modal.active {
+            display: block;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1); /* Scale to full size */
+        }
+
+        .modal-content {
+            /* Styles for content inside modal */
+        }
+        .modal-content h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+            color: #3498db;
+            border-bottom: none; /* Remove bottom border inside modal */
+            padding-bottom: 0;
+        }
+        .modal-content p strong { /* Style label-like elements */
+            display: inline-block;
+            min-width: 80px; /* Align labels slightly */
+            color: #333;
+        }
+        .modal-content h4 { /* Spacing for subheadings in modal */
+            margin-top: 1.2em;
+            margin-bottom: 0.6em;
+            color: #2c3e50; /* Darker subheading */
+            font-size: 1.2rem;
+        }
+        .modal-content ul {
+            margin-bottom: 1.2em;
+        }
+        .modal-content p:last-child {
+            margin-bottom: 0;
+        }
+        .modal-content .tech-used { /* Specific style for tech used para */
+            margin-top: 1.5em;
+            font-size: 0.95rem;
+            border-top: 1px solid #eee;
+            padding-top: 1em;
+        }
+         .modal-content .tech-used strong {
+             color: #3498db; /* Highlight "Tech Used:" */
+         }
+
+
+        .close-modal-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #aaa;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s ease;
+        }
+
+        .close-modal-btn:hover {
+            color: #333;
+        }
+
+        /* Footer */
+        .portfolio-footer {
+            text-align: center;
+            margin-top: 4em;
+            padding: 1.5em 1em;
+            background-color: #ecf0f1; /* Light grey footer */
+            color: #777;
+            font-size: 0.9rem;
+        }
+         .portfolio-footer .footer-links {
+             margin-top: 0.5em;
+         }
+         .portfolio-footer a {
+             margin: 0 0.7em;
+             color: #555;
+             display: inline-flex; /* Align icon and text vertically */
+             align-items: center;
+         }
+         .portfolio-footer a i {
+             margin-right: 0.4em; /* Space between icon and text */
+         }
+         .portfolio-footer a:hover {
+             color: #3498db;
+         }
+
+
+        /* Profile Picture */
+        .profile-picture-container {
+            text-align: center;
+            margin-top: 2em;
+            margin-bottom: 1em; /* Space below picture */
+        }
+        .profile-picture {
+            width: 180px; /* Adjust size as needed */
+            height: 180px;
+            border-radius: 50%; /* Makes it round */
+            border: 5px solid #fff; /* White border */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+            object-fit: cover; /* Scales the image nicely */
+        }
+
+
+        /* Content Section Styling (for About, Skills, Recognition, Contact) */
+        .content-section {
+            max-width: 900px; /* Slightly narrower for text-heavy sections */
+            margin: 3em auto; /* Top/bottom margin and auto horizontal centering */
+            padding: 1.5em 2em;
+            background-color: #ffffff; /* White background for contrast */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        /* Adjust top margin for first content section after header */
+         .profile-picture-container + .content-section {
+            margin-top: 1em;
+         }
+
+        .content-section h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.3em;
+            margin-bottom: 1em;
+            font-size: 1.8rem;
+        }
+
+        /* About Section Specifics */
+        .about-section p {
+            margin-bottom: 1em;
+            color: #444; /* Slightly darker text for readability */
+        }
+        .about-section p:last-child {
+            margin-bottom: 0;
+        }
+        .about-section strong.headline { /* Highlight the headline */
+            color: #2c3e50;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 0.5em;
+            line-height: 1.4;
+        }
+        .about-section em { /* Italicize the purpose note */
+            color: #555;
+            font-style: italic;
+        }
+
+        /* Gallery Title */
+        .gallery-title { /* Center the main gallery title */
+            text-align: center;
+            border-bottom: none; /* Remove border if desired */
+            margin-bottom: 1.5em;
+            font-size: 2rem;
+            margin-top: 1.5em;
+        }
+        /* Adjust project group heading size if needed */
+        .project-group h3 {
+             font-size: 1.6rem;
+             color: #3498db;
+             margin-bottom: 1em;
+             padding-bottom: 0.2em;
+             align-items: center;
+             /* border-bottom: 1px solid #eee; Optional subtle separator */
+        }
+         .project-group h3 i {
+             margin-right: 0.5em;
+             opacity: 0.8;
+         }
+
+
+        /* Skills Section Specifics */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8em; /* Spacing between skill tags */
+            margin-top: 1em;
+        }
+
+        .skills-list span {
+            background-color: #e9ecef; /* Consistent light grey */
+            color: #333;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid #dee2e6; /* Subtle border */
+        }
+
+        /* Recognition Section Specifics */
+        .recognition-section h2 {
+            margin-bottom: 1.5em;
+        }
+
+        .recognition-item {
+            margin-bottom: 1.5em;
+            padding-left: 1.5em; /* Indent content */
+            position: relative; /* For icon positioning */
+            border-left: 3px solid #d1e7fd; /* Subtle left border */
+            padding-left: 1.2em;
+        }
+
+        .recognition-item h4 {
+            font-size: 1.15rem;
+            color: #3498db; /* Accent color */
+            margin-bottom: 0.3em;
+            display: flex; /* Align icon and text */
+            align-items: center;
+        }
+        .recognition-item h4 i { /* Icon styling */
+            margin-right: 0.6em;
+            color: #3498db;
+            opacity: 0.9;
+            font-size: 1.1em; /* Slightly larger icon */
+            width: 1.2em;
+            text-align: center;
+        }
+
+        .recognition-item p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 0.2em;
+        }
+        .recognition-item p strong {
+            color: #444;
+        }
+
+        /* Contact Section Styling */
+         .contact-section ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5em;
+        }
+        .contact-section li {
+            margin-bottom: 1em;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            color: #444;
+        }
+        .contact-section li i {
+            margin-right: 0.8em;
+            color: #3498db;
+            width: 1.5em; /* Ensure icons align */
+            text-align: center;
+            font-size: 1.1em;
+        }
+         .contact-section li a {
+             color: #3498db;
+             word-break: break-all; /* Prevent long URLs/emails from breaking layout */
+         }
+         .contact-section li a:hover {
+             color: #2980b9;
+         }
+
+        /* Ensure main gallery padding is appropriate */
+        /* .portfolio-gallery.content-section removed as gallery is not a content section now */
+        .portfolio-gallery {
+            max-width: 1200px; /* Gallery can be wider */
+            margin: 3em auto; /* Restore default margin */
+            padding: 0 1em; /* Use default padding */
+        }
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+             .content-section {
+                padding: 1em 1.5em;
+                margin-left: 1em;
+                margin-right: 1em;
+                max-width: none; /* Allow content sections to use more width */
+            }
+            .project-grid {
+                grid-template-columns: 1fr; /* Stack cards on smaller screens */
+            }
+             .profile-picture {
+                width: 150px;
+                height: 150px;
+            }
+            .modal {
+                width: 95%; /* Use more screen width */
+                padding: 1.5em;
+            }
+             .close-modal-btn {
+                top: 10px;
+                right: 15px;
+                font-size: 1.8rem;
+            }
+             .project-group h3 {
+                 font-size: 1.4rem;
+             }
+             .contact-section li {
+                 font-size: 0.95rem;
+             }
+        }
+        @media (max-width: 480px) {
+             h1 {
+                 font-size: 1.8rem;
+             }
+             .portfolio-header p {
+                 font-size: 1rem;
+             }
+              .profile-picture {
+                width: 120px;
+                height: 120px;
+            }
+             .project-card h3 {
+                 font-size: 1.1rem;
+             }
+             .project-card .brief {
+                 font-size: 0.9rem;
+             }
+             .modal-content h2 {
+                 font-size: 1.5rem;
+             }
+             .modal-content h4 {
+                 font-size: 1.1rem;
+             }
+             .tags span {
+                 font-size: 0.75rem;
+                 padding: 0.2em 0.6em;
+             }
+             .skills-list span {
+                 font-size: 0.9rem;
+                 padding: 0.4em 0.8em;
+             }
+             .contact-section li {
+                 font-size: 0.9rem;
+             }
+             .portfolio-footer {
+                 font-size: 0.85rem;
+             }
+             .portfolio-footer a {
+                 margin: 0 0.5em;
+             }
+        }
+    </style>
+
+</head>
+<body>
+
+    <header class="portfolio-header">
+        <h1>Gururajan Padmanaban</h1>
+        <p>Sr. Software Engineer (GenAI) | AI Product Builder | Tech Solutions Specialist | AGI | 10+ Yrs Experience</p>
+    </header>
+
+    <!-- Profile Picture Section -->
+    <div class="profile-picture-container">
+        <!-- *** REPLACE THIS SRC with the actual URL to your profile picture *** -->
+        <img src="Gururajan.jpg" alt="Gururajan Padmanaban Profile Picture" class="profile-picture">
+        <!-- Example: <img src="https://github.com/pgr405.png" alt="Gururajan Padmanaban Profile Picture" class="profile-picture"> -->
+        <!--          OR <img src="images/my-photo.jpg" alt="Gururajan Padmanaban Profile Picture" class="profile-picture"> -->
+    </div>
+
+    <section id="about" class="about-section content-section">
+        <h2>About Me</h2>
+        <p><strong class="headline">🚀 AI Innovator & Software Expert with 10+ Yrs in IT & Freelancing | Applied for Patent | End-to-End AI Product Developer | Enterprise AI & Privacy-First Solutions Architect</strong></p>
+        <p>I am an AI innovator, strategist, and problem-solver specializing in AI-driven product development, scalable enterprise solutions, and strategic AI governance. I conceived, developed, and deployed a first-of-its-kind AI wrapper technology (SecureLLM - Patent Application: 19/080650) that evaluates user intent, safeguards AI models, and enhances strategic decision-making.</p>
+        <p>My AI solution isn’t just an innovation—it’s a scalable, production-grade product. Designed for flexibility and seamless integration, it works with both locally hosted LLMs and proprietary AI models, ensuring data privacy, security, and adaptability for enterprises. It serves as a parallel production layer, making it a plug-and-play solution for enhancing AI governance.</p>
+        <p>With over a decade of diverse experience, I’ve built a reputation for resolving complex problems. My expertise lies in developing AI solutions that bridge privacy, performance, and scalability. Consistently delivering above-target performance, I thrive on building intelligent, adaptable, and enterprise-ready AI solutions targeting AGI principles where applicable.</p>
+        <p><em>This portfolio provides a detailed look into key projects for those wishing to explore my work and achievements in depth.</em></p>
+    </section>
+
+    <main id="projects" class="portfolio-gallery">
+        <h2 class="gallery-title">Project Gallery</h2>
+
+        <!-- ==============================
+             GENAI INITIATIVES & INNOVATION
+             ============================== -->
+        <section class="project-group">
+            <h3><i class="fas fa-brain"></i> GenAI Initiatives & Innovation</h3>
+            <div class="project-grid">
+
+                <!-- Project Card: SecureLLM Productization -->
+                <article class="project-card" data-modal-id="modal-securellm-product">
+                    <div class="card-content">
+                        <h3><i class="fas fa-shield-alt"></i> SecureLLM – AI Wrapper Productization</h3>
+                        <p class="brief">Designed and delivered SecureLLM, a privacy-first AI wrapper tackling OWASP risks, enabling secure on-device & cloud deployment. Patent pending (App No: 19/080650).</p>
+                        <div class="tags">
+                           <span>GenAI</span><span>Security</span><span>Python</span><span>FastAPI</span><span>Docker</span><span>Kubernetes</span><span>AWS</span><span>Productization</span><span>Patent Pending</span>
+                        </div>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Project Card: Hack-AI-Thon Winner (SecureLLM v1) -->
+                <article class="project-card" data-modal-id="modal-hackathon">
+                    <div class="card-content">
+                        <h3><i class="fas fa-trophy"></i> AI Hackathon Champion – SecureLLM v1</h3>
+                        <p class="brief">Won 1st place by conceiving and building the initial SecureLLM concept, securing LLM interactions against vulnerabilities.</p>
+                        <div class="tags">
+                           <span>GenAI</span><span>Hackathon Winner</span><span>Innovation</span><span>Python</span><span>Docker</span><span>Ollama</span><span>1BitLLM</span>
+                        </div>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Project Card: GenAI4RepDB -->
+                <article class="project-card" data-modal-id="modal-genai-repdb">
+                    <div class="card-content">
+                        <h3><i class="fas fa-database"></i> GenAI4RepDB – Threat Intel Automation</h3>
+                        <p class="brief">Built GenAI tools for Trellix's reporting DB, mapping OS changes to MITRE, enabling real-time AI chat with context.</p>
+                         <div class="tags">
+                           <span>GenAI</span><span>Threat Intelligence</span><span>MITRE</span><span>LangChain</span><span>AWS Lambda</span><span>Python</span><span>LLM APIs</span>
+                        </div>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+                 <!-- Project Card: Executive Reporting via GenAI -->
+                <article class="project-card" data-modal-id="modal-exec-reporting">
+                    <div class="card-content">
+                        <h3><i class="fas fa-file-pdf"></i> Executive Reporting via GenAI</h3>
+                        <p class="brief">Automated generation of executive-level security reports from threat intel using GenAI, reducing effort from hours to minutes.</p>
+                         <div class="tags">
+                           <span>GenAI</span><span>Automation</span><span>Reporting</span><span>Python</span><span>LangChain</span><span>PDF</span><span>LLM APIs</span>
+                        </div>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+            </div><!-- /.project-grid -->
+        </section> <!-- /.project-group -->
+
+
+        <!-- ==============================
+             PLUGIN DEVELOPMENT & MODERNIZATION
+             ============================== -->
+        <section class="project-group">
+            <h3><i class="fas fa-cogs"></i> Plugin Development & Modernization</h3>
+            <div class="project-grid">
+
+                 <!-- Project Card: Clone & Go Plugin Initiative -->
+                <article class="project-card" data-modal-id="modal-clone-go">
+                    <div class="card-content">
+                        <h3><i class="fas fa-project-diagram"></i> Clone & Go Plugin Modernization</h3>
+                        <p class="brief">Led the core strategy to transform legacy .NET plugins (HBGCommon, AutoGen, etc.) to modern .NET 6, containerized & cloud-ready.</p>
+                        <div class="tags">
+                            <span>.NET 6</span><span>Modernization</span><span>Refactoring</span><span>Docker</span><span>AWS</span><span>CodeArtifact</span><span>Kafka</span><span>CloudWatch</span>
+                        </div>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Project Card: APKScanner Redevelopment -->
+                <article class="project-card" data-modal-id="modal-apkscanner">
+                    <div class="card-content">
+                        <h3><i class="fab fa-android"></i> APKScanner – Custom Runtime Plugin</h3>
+                        <p class="brief">Led end-to-end redevelopment of legacy APKScanner (.NET 4.x) to a cross-platform .NET 6 solution for AWS Lambda using Docker.</p>
+                         <div class="tags">
+                            <span>.NET 6</span><span>AWS Lambda</span><span>Docker</span><span>Reverse Engineering</span><span>Python</span><span>Java</span><span>APKTool</span>
+                        </div>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+                 <!-- Project Card: AV-Test Data Collection Automation -->
+                 <article class="project-card" data-modal-id="modal-avtest">
+                     <div class="card-content">
+                        <h3><i class="fas fa-rocket"></i> AV-Test Data Automation (Cloud-Native)</h3>
+                        <p class="brief">Designed a fully automated, scalable ECS Fargate + Lambda pipeline for delta-based AV-Test data collection.</p>
+                        <div class="tags">
+                           <span>AWS Lambda</span><span>ECS Fargate</span><span>Docker</span><span>Python</span><span>IaC</span><span>Automation</span><span>CloudWatch</span>
+                        </div>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+            </div><!-- /.project-grid -->
+        </section> <!-- /.project-group -->
+
+        <!-- ==============================
+             AWS INFRASTRUCTURE & OPTIMIZATION
+             ============================== -->
+        <section class="project-group">
+            <h3><i class="fas fa-cloud-arrow-up"></i> AWS Infrastructure & Optimization</h3>
+            <div class="project-grid">
+
+                 <!-- Project Card: AWS Cost Optimization -->
+                <article class="project-card" data-modal-id="modal-aws-cost-opt">
+                    <div class="card-content">
+                        <h3><i class="fas fa-dollar-sign"></i> AWS Cost Optimization & Storage Efficiency</h3>
+                        <p class="brief">Achieved 99% Athena cost reduction (~$70K/mo) & 95% S3 storage savings (~$5K/mo) via Lambda, Parquet, Gzip & automation.</p>
+                        <div class="tags">
+                            <span>AWS</span><span>Cost Reduction</span><span>Athena</span><span>S3</span><span>Lambda</span><span>Python</span><span>Parquet</span>
+                        </div>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Project Card: Dashboard as a Service (DAAS) -->
+                <article class="project-card" data-modal-id="modal-daas">
+                     <div class="card-content">
+                        <h3><i class="fas fa-chart-line"></i> Dashboard as a Service (DaaS)</h3>
+                        <p class="brief">Architected and delivered internal DaaS using QuickSight SPICE, Lambda, Jenkins for unified, scalable analytics.</p>
+                         <div class="tags">
+                           <span>AWS QuickSight</span><span>SPICE</span><span>AWS Lambda</span><span>Python</span><span>DaaS</span><span>Automation</span>
+                        </div>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+                <!-- Project Card: Quicksight-Okta Integration -->
+                 <article class="project-card" data-modal-id="modal-okta-quicksight">
+                     <div class="card-content">
+                        <h3><i class="fas fa-mobile-alt"></i> QuickSight-Okta Integration & Automation</h3>
+                        <p class="brief">Enabled secure SSO dashboard access (including mobile) via Okta, saving $500/mo with automated user provisioning.</p>
+                         <div class="tags">
+                            <span>Okta</span><span>SSO</span><span>QuickSight</span><span>Mobile</span><span>Automation</span><span>Cost Savings</span>
+                        </div>
+                        <button class="details-btn">View Details</button>
+                    </div>
+                </article>
+
+                 <!-- Project Card: Time & Space Optimization -->
+                 <article class="project-card" data-modal-id="modal-pipeline-opt">
+                      <div class="card-content">
+                         <h3><i class="fas fa-tachometer-alt"></i> Data Pipeline Time & Space Optimization</h3>
+                         <p class="brief">Re-engineered a TeamCity->S3 metadata pipeline reducing API calls by 99.95%, time by 99.22%, and storage by 99.02%.</p>
+                          <div class="tags">
+                             <span>Optimization</span><span>Python</span><span>REST API</span><span>AWS S3</span><span>TeamCity</span><span>Performance</span>
+                          </div>
+                         <button class="details-btn">View Details</button>
+                     </div>
+                 </article>
+
+            </div><!-- /.project-grid -->
+        </section> <!-- /.project-group -->
+
+    </main>
+
+    <section id="skills" class="skills-section content-section">
+        <h2>Key Skills</h2>
+        <div class="skills-list">
+            <span>Large Language Models (LLM)</span>
+            <span>LLMOps</span>
+            <span>GenAI Strategy & Product Dev</span>
+            <span>Python</span>
+            <span>Amazon Web Services (AWS)</span>
+            <span>Docker</span>
+            <span>Kubernetes</span>
+            <span>REST APIs</span>
+            <span>CI/CD (Jenkins, GitHub Actions)</span>
+            <span>.NET (Core / Framework)</span>
+            <span>Data Pipelines & ETL</span>
+            <span>Cost Optimization (Cloud)</span>
+            <span>Problem Solving & Analysis</span>
+            <span>Innovation Development</span>
+            <span>Software Architecture</span>
+            <span>Microservices</span>
+             <span>Serverless (Lambda)</span>
+            <span>Infrastructure as Code (IaC)</span>
+            <span>Security Focused Development</span>
+            <span>Reverse Engineering</span>
+            <span>Automation</span>
+            <span>SQL</span>
+            <span>NoSQL (DocumentDB)</span>
+            <span>Messaging Queues (Kafka)</span>
+            <span>Git & Version Control</span>
+        </div>
+    </section>
+
+     <section id="recognition" class="recognition-section content-section">
+         <h2>Recognition & Patents</h2>
+         <div class="recognition-item">
+             <h4><i class="fas fa-certificate"></i> Patent Application Filed (Generative AI)</h4>
+             <p><strong>A MULTI-LEVEL APPROACH FOR ATTACK PREVENTION</strong><br>
+                US Patent Application No: <strong>19/080650</strong> (Filed Oct 17, 2024)<br>
+                Focuses on the SecureLLM AI Wrapper technology for security, efficiency, and novel deployment mechanisms in GenAI.</p>
+         </div>
+         <div class="recognition-item">
+             <h4><i class="fas fa-trophy"></i> AI Wrapper Technology – Innovation + Hackathon Win</h4>
+             <p><strong>Issued by Trellix (Sep 2024)</strong> - Conceived, built, and won 1st place for the SecureLLM AI wrapper, recognized as a scalable product with real-world impact.</p>
+         </div>
+         <div class="recognition-item">
+             <h4><i class="fas fa-award"></i> Accountable and Empowered Award</h4>
+             <p><strong>Issued by FIRST ADVANTAGE (Dec 2020)</strong> - For ePay(Invoice Portal) enhancements and system upgrades.</p>
+         </div>
+          <div class="recognition-item">
+             <h4><i class="fas fa-award"></i> Delivery Excellence Award</h4>
+             <p><strong>Issued by FIRST ADVANTAGE (Sep 2019)</strong></p>
+         </div>
+         <div class="recognition-item">
+             <h4><i class="fas fa-award"></i> Result Focused Award</h4>
+             <p><strong>Issued by FIRST ADVANTAGE (Aug 2019)</strong> - For integrating ePay with Alfresco Community Edition.</p>
+         </div>
+     </section>
+
+    <section id="contact" class="contact-section content-section">
+        <h2>Contact Information</h2>
+        <ul>
+            <li><i class="fas fa-map-marker-alt"></i> Dharmapuri, Tamil Nadu, India</li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+918012132204">8012132204</a> (Home)</li>
+             <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/918012132204" target="_blank" rel="noopener noreferrer">8012132204</a> (WhatsApp)</li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:pgr405@gmail.com">pgr405@gmail.com</a></li>
+            <li><i class="fas fa-envelope-open-text"></i> <a href="mailto:spgururajan@gmail.com">spgururajan@gmail.com</a> (Alt)</li>
+            <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/gururajan-padmanaban-portfolio" target="_blank" rel="noopener noreferrer">linkedin.com/in/gururajanpadmanaban-portfolio</a></li>
+            <li><i class="fab fa-github"></i> <a href="https://github.com/pgr405" target="_blank" rel="noopener noreferrer">github.com/pgr405</a></li>
+             <li><i class="fab fa-xing"></i> <a href="https://x.com/GeniousGuru" target="_blank" rel="noopener noreferrer">x.com/GeniousGuru</a> (Formerly Twitter)</li>
+        </ul>
+    </section>
+
+
+    <footer class="portfolio-footer">
+        <p>&copy; 2024 Gururajan Padmanaban - Detailed Portfolio</p>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/gururajan-padmanaban-portfolio" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a> |
+            <a href="https://github.com/pgr405" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a> |
+            <a href="https://x.com/GeniousGuru" target="_blank" rel="noopener noreferrer"><i class="fab fa-xing"></i> X</a> |
+            <a href="mailto:pgr405@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        </div>
+    </footer>
+
+    <!-- ==============================
+         MODALS (Populated with DETAILED Project Data)
+         ============================== -->
+    <div id="modal-overlay"></div>
+
+    <!-- Modal: SecureLLM Productization -->
+    <div class="modal" id="modal-securellm-product">
+        <button class="close-modal-btn">&times;</button>
+        <div class="modal-content">
+            <h2>🧩 SecureLLM – AI Wrapper Productization</h2>
+            <p><strong>Timeline:</strong> Jan 2024 - Dec 2024 (Associated with Trellix)</p>
+            <p><strong>Role:</strong> Inventor, Architect & Product Owner</p>
+             <p><strong>Patent Application No:</strong> 19/080650</p>
+            <h4>Summary:</h4>
+            <p>Designed and delivered SecureLLM, a first-of-its-kind Generative AI wrapper that adds a security layer to LLMs, tackling OWASP vulnerabilities and enabling both on-device CPU-based and cloud SaaS deployments.</p>
+            <h4>Key Achievements:</h4>
+             <ul>
+                 <li>Developed complete product architecture and strategy from concept to production.</li>
+                 <li>Integrated <strong>OWASP security filters</strong> into LLM pipelines for enhanced protection.</li>
+                 <li>Developed a <strong>modular context engine</strong> for flexible context management.</li>
+                 <li>Implemented <strong>multi-mode deployment</strong>: AIO Docker version for seamless local/on-prem deployment, AWS Kubernetes (ECS) for scalable cloud SaaS, and On-device support.</li>
+                 <li>Introduced <strong>1BitLLM support</strong> to run large models efficiently on constrained CPU-only environments (e.g., appliances).</li>
+                 <li>Supported HashInfo integration, enabling secure, AI-powered threat analysis directly on network appliances.</li>
+                 <li>Showcased end-to-end ownership from ideation, development, testing, to production deployment and support.</li>
+             </ul>
+             <h4>Impact:</h4>
+             <ul>
+                 <li>Revolutionized internal GenAI product safety standards and practices.</li>
+                 <li>🚀 Deployed in production across internal teams, enhancing AI security.</li>
+                 <li>💡 Filed patent for multiple novel ideas embodied in the technology.</li>
+                 <li>🏆 Transitioned a hackathon-winning innovation into a robust, production-ready product.</li>
+                 <li>🧠 Recognized as a <strong>game-changing innovation</strong> by executive leadership.</li>
+                 <li>🛡️ Ensures compliance and privacy in GenAI usage across various deployment scenarios.</li>
+             </ul>
+             <p class="tech-used"><strong>Tech Used:</strong> Python, FastAPI, Ollama, LangChain, 1BitLLM, Docker, Kubernetes (AWS ECS), AWS, LLM APIs (Anthropic, OpenAI, Sonnet), REST APIs, OWASP Security Principles & Filters, CPU Optimization Techniques</p>
+        </div>
+    </div>
+
+     <!-- Modal: Hack-AI-Thon Winner -->
+    <div class="modal" id="modal-hackathon">
+        <button class="close-modal-btn">&times;</button>
+        <div class="modal-content">
+            <h2>🏆 AI Hackathon Champion – SecureLLM</h2>
+            <p><strong>Timeline:</strong> Jan 2024 - Dec 2024 (Associated with Trellix)</p>
+             <p><strong>Role:</strong> Lead Innovator & Presenter</p>
+             <h4>Summary:</h4>
+             <p>Conceived and executed a revolutionary project in 48 hours that secured LLM interactions against common vulnerabilities. Won the company's first AI Hackathon and turned the concept into the SecureLLM product now used in production environments.</p>
+             <h4>Highlights:</h4>
+             <ul>
+                 <li>Built an end-to-end secure, modular GenAI solution integrating local LLMs.</li>
+                 <li>Implemented real-time GenAI integration with live data sources.</li>
+                 <li>Incorporated contextual memory and sandboxed execution for safer interactions.</li>
+                 <li>Pitched and successfully demoed the concept and working prototype live to judges and leadership.</li>
+             </ul>
+             <h4>Impact:</h4>
+             <ul>
+                 <li>🏆 <strong>Won 1st place</strong> in company-wide Hackathon against numerous teams.</li>
+                 <li>✔ Earned top recognition and visibility from leadership and peers.</li>
+                 <li>📌 The core idea was accepted for immediate <strong>productization and patent filing</strong> (becoming SecureLLM).</li>
+                 <li>🎯 Influenced future product direction for AI integration in security and inspired the broader “Trellix Wise” AI initiative.</li>
+             </ul>
+              <p class="tech-used"><strong>Tech Used:</strong> Python, FastAPI, Ollama, 1BitLLM, Docker, Kubernetes (PoC), AWS (ECS for later deployment), REST APIs, LLMs (Local models initially, later Anthropic, Sonnet), CPU Optimization, LangChain, Context Memory</p>
+        </div>
+    </div>
+
+    <!-- Modal: GenAI4RepDB -->
+     <div class="modal" id="modal-genai-repdb">
+         <button class="close-modal-btn">&times;</button>
+         <div class="modal-content">
+            <h2>🧠 GenAI4RepDB – Threat Intelligence Automation</h2>
+             <p><strong>Timeline:</strong> Jan 2024 - Dec 2024 (Associated with Trellix)</p>
+            <p><strong>Role:</strong> Feature Owner & Engineer</p>
+            <h4>Summary:</h4>
+            <p>Built a suite of GenAI-powered tools integrated with Trellix’s reporting database (RepDB), enabling tactical cybersecurity insights and real-time AI interaction for analysts.</p>
+            <h4>Key Modules Delivered:</h4>
+             <ul>
+                 <li><strong>MITRE Tactical Info Generator:</strong> Mapped OS changes (from TITAN API) to relevant <strong>MITRE ATT&CK Tactics</strong> using GenAI (Anthropic/Sonnet 3.5 via Bedrock/API).</li>
+                 <li><strong>Real-time AI Chat (HashInfo Chat):</strong> Built an AI chat assistant allowing analysts to query system data (e.g., hash information, OS changes) in natural language.</li>
+                 <li><strong>Conversation Memory Context:</strong> Implemented memory management within the chat function using LangChain for persistent, multi-turn GenAI interactions, improving context retention and usability.</li>
+             </ul>
+            <h4>Impact:</h4>
+             <ul>
+                 <li>🔄 Enhanced operational efficiency and reduced triaging time for security analysts.</li>
+                 <li>🔍 Faster access to <strong>relevant threat insights</strong> and contextual information.</li>
+                 <li>📈 Improved threat detection accuracy and context mapping capabilities.</li>
+                 <li>🧩 Created a <strong>scalable template</strong> for integrating GenAI into other internal tools and reporting systems.</li>
+                 <li>📊 Accelerated GenAI adoption within enterprise reporting systems & showcased Trellix’s practical AI innovation.</li>
+             </ul>
+              <p class="tech-used"><strong>Tech Used:</strong> AWS Lambda, AWS Bedrock, Ollama (for potential local dev/testing), Python, LangChain, LLM APIs (Anthropic/Sonnet), MITRE ATT&CK Framework Mapping, Titan OS Change API, REST APIs</p>
+         </div>
+     </div>
+
+     <!-- Modal: Executive Reporting via GenAI -->
+    <div class="modal" id="modal-exec-reporting">
+        <button class="close-modal-btn">&times;</button>
+        <div class="modal-content">
+            <h2>📄 Executive Reporting via GenAI</h2>
+            <p><strong>Timeline:</strong> Approx. Q1 2024 - Present (Associated with Trellix)</p>
+             <p><strong>Role:</strong> Lead Developer & Workflow Designer</p>
+             <h4>Summary:</h4>
+             <p>Designed and implemented a GenAI-driven reporting automation tool that generates executive-level summaries of security incidents and threat campaigns, replacing time-consuming manual analyst-driven processes.</p>
+             <h4>Key Contributions:</h4>
+             <ul>
+                 <li>Developed a GenAI-powered summarization engine using LangChain and LLM APIs (OpenAI/Anthropic) to convert large volumes of complex threat intelligence data into concise, high-quality executive reports.</li>
+                 <li>Integrated <strong>Markdown to PDF rendering</strong> libraries, enabling seamless creation of formatted, professional-looking PDF reports directly from the generated summaries.</li>
+                 <li>Automated key information extraction, risk assessment summaries, and contextual tagging, significantly reducing the need for manual human input and review.</li>
+                 <li>Built modular and reusable Python components designed for parsing diverse internal data sources accessed via REST APIs.</li>
+             </ul>
+             <h4>Impact:</h4>
+             <ul>
+                 <li>📉 Reduced report generation time from <strong>hours to minutes</strong> per report.</li>
+                 <li>🤝 Enabled security analysts to focus on deeper investigation and analysis instead of routine formatting and summary writing tasks.</li>
+                 <li>📈 Improved executive visibility and <strong>decision-making</strong> regarding threat posture by providing timely, structured, and jargon-free outputs.</li>
+                 <li>⚙️ Designed to be scalable and easily extensible for multiple use cases, including weekly threat updates, specific campaign overviews, and potentially customer-specific briefs.</li>
+             </ul>
+             <p class="tech-used"><strong>Tech Used:</strong> AWS (likely Lambda/other services), Python, OpenAI/Anthropic APIs, Markdown to PDF Generation Libraries (e.g., WeasyPrint, ReportLab), LangChain, Data Parsers, REST APIs</p>
+        </div>
+    </div>
+
+
+    <!-- Modal: Clone & Go Plugin Modernization -->
+    <div class="modal" id="modal-clone-go">
+         <button class="close-modal-btn">&times;</button>
+         <div class="modal-content">
+             <h2>🧩 Clone & Go Plugin Modernization Initiative</h2>
+             <p><strong>Timeline:</strong> Jan 2023 - Dec 2023 (Associated with Trellix)</p>
+             <p><strong>Role:</strong> Technical Lead / Module Owner & Maintainer (HBG-AutoGen) / Sr. Software Engineer</p>
+             <h4>Summary:</h4>
+             <p>Owned and executed the core plugin modernization strategy under the “Clone & Go” initiative. This focused on transforming legacy .NET Framework 4.x plugins into modern, scalable, and maintainable .NET 6 components, integrating them into production-grade cloud environments and enterprise workflows.</p>
+             <h4>Key Contributions:</h4>
+             <ul>
+                 <li><strong>🧱 .NET 6 Migration & Platform Independence:</strong> Migrated key plugin components (<code>HBGCommon</code>, <code>AutoGen (LogParser)</code>, <code>Assocgen</code>, <code>DriverCtlr</code>, <code>DriverEval</code>, etc.) from .NET Framework 4.x to .NET 6.0. Refactored code, replaced Windows-exclusive dependencies (e.g., GAC) with cross-platform or container-friendly implementations. Supported additional modules like <code>LogManager</code>, <code>Athena-*</code> series.</li>
+                 <li><strong>🔗 Custom Plugin Integration (HBG-AutoGen / LogParser):</strong> Resolved a critical missing LogParser dependency, a major blocker for the HBG ecosystem. Designed, rebuilt, and implemented a robust replacement as a .NET 6 Windows Service running on AWS EC2 in record time. Integrated this crucial service with Kafka and DocumentDB for inter-service communication and AWS CloudWatch for real-time logging. Owned fully from design to maintenance.</li>
+                 <li><strong>📦 Containerization & AWS Deployment:</strong> Designed and deployed container-based plugin functions using Docker for future extensibility (targeting Lambda/ECS). Published reusable compiled DLLs and libraries to AWS CodeArtifact for organization-wide consumption and modular integration. Integrated new plugins into the ecosystem deployed on EC2 Windows instances.</li>
+                 <li><strong>🔄 Chimera Plugin Upgrades & Internal Support:</strong> Contributed to high-priority plugin refactors including <code>Athena-V6Process</code> and <code>Athena-RealProtect</code>. Diagnosed and resolved critical runtime issues and dependency chain problems, assisting cross-functional teams during integration.</li>
+                 <li><strong>📊 HBG Ecosystem Modernization:</strong> Revamped HBGCommon and subsystems, migrating to .NET 6, deploying DLLs via CodeArtifact, and integrating real-time CloudWatch logging across the EC2-based ecosystem.</li>
+             </ul>
+             <h4>Impact:</h4>
+             <ul>
+                 <li>Enabled cloud-compatible deployment of critical legacy security tools, reducing tech debt.</li>
+                 <li>Reduced operational risk through improved stability, observability (CloudWatch), and cross-platform compatibility.</li>
+                 <li>Established a reusable modernization template and streamlined future plugin creation/deployment via CodeArtifact.</li>
+                 <li>Enhanced maintainability and simplified cloud deployment/monitoring workflows.</li>
+                 <li>Delivered the most crucial component (HBG-AutoGen) of the HBG pipeline rapidly, unblocking the entire ecosystem.</li>
+                 <li>Ensured long-term viability of multiple critical components.</li>
+             </ul>
+             <p class="tech-used"><strong>Tech Used:</strong> .NET 6, .NET Framework 4.x, C#, AWS Lambda (target), ECS Fargate (target), Docker, AWS EC2 (Windows), AWS CloudWatch, Kafka, Amazon DocumentDB (NoSQL), AWS CodeArtifact, GitHub, Python (scripting/tooling), Bash, Windows Services, LogParser (dependency), Reverse Engineering (understanding legacy code)</p>
+         </div>
+     </div>
+
+     <!-- Modal: APKScanner Redevelopment -->
+    <div class="modal" id="modal-apkscanner">
+        <button class="close-modal-btn">&times;</button>
+        <div class="modal-content">
+             <h2>📱 APKScanner – Custom Runtime Plugin for AWS</h2>
+             <p><strong>Timeline:</strong> Jun 2023 – Oct 2023 (Associated with Trellix)</p>
+             <p><strong>Role:</strong> Senior Software Engineer / Lead Developer</p>
+             <h4>Summary:</h4>
+             <p>Led the end-to-end redevelopment of the legacy APKScanner plugin from scratch, migrating it from a Windows-only .NET Framework setup to a fully containerized, cross-platform .NET 6 solution integrated with AWS Lambda, critically doing so without access to original documentation.</p>
+             <h4>Key Features & Contributions:</h4>
+             <ul>
+                 <li><strong>🔄 Legacy-to-Cloud Migration:</strong> Transformed a Windows-based .NET Framework 4.x plugin into a platform-independent .NET 6.0 solution deployable on Linux via Docker.</li>
+                 <li><strong>🔍 Reverse Engineering:</strong> Independently decoded, reconstructed, and validated the original functionality of the APKScanner plugin, including complex scanning logic and workflows, solely from the existing binaries.</li>
+                 <li><strong>🐳 Custom Docker Runtime Build:</strong> Engineered a specialized, multi-runtime Docker image (based on Ubuntu 22) supporting <strong>Python, Java, and .NET 6</strong>, specifically optimized for AWS Lambda container deployment. Included necessary tools like Apktool, APKSig, AAPT2.</li>
+                 <li><strong>🧩 Dependency Resolution & Integration:</strong> Identified, sourced/rebuilt, and integrated major missing or incompatible dependencies for Linux (e.g., replacing AndroidXML.dll, IonicZip; ensuring OpenSSL compatibility; managing shell tools).</li>
+                 <li><strong>🛠️ Advanced Tool Integration:</strong> Integrated <strong>APKTool v2.11.0</strong> ensuring accurate decompilation and re-compilation of modern Android APKs (supporting API level 35/36+). Added APKSig and AAPT2 for signature and resource processing.</li>
+                 <li><strong>☁️ Cloud Deployment & Validation:</strong> Successfully deployed and rigorously validated the plugin as an AWS Lambda container function (using ECR for image storage), resolving numerous runtime errors, dependency conflicts, and binary incompatibilities specific to the Linux environment.</li>
+                 <li><strong>🚧 Troubleshooting & Optimization:</strong> Addressed critical build and runtime issues such as Dotnet installation failures within Docker, base image vulnerabilities, and cross-runtime interaction problems.</li>
+             </ul>
+             <h4>Impact:</h4>
+             <ul>
+                 <li>Delivered a robust, maintainable, and significantly more versatile cloud-native plugin with multi-runtime support.</li>
+                 <li>Unblocked a critical component of the security analysis pipeline that had been stalled due to the limitations and obscurity of the legacy design.</li>
+                 <li>Established a reusable and effective pattern for migrating complex, multi-dependency legacy applications to AWS Lambda containers.</li>
+                 <li>Revived a critical plugin within the security ecosystem, enabling its use in modern cloud infrastructure.</li>
+                 <li>Reduced dependency bottlenecks and simplified future maintenance significantly.</li>
+             </ul>
+              <p class="tech-used"><strong>Tech Used:</strong> .NET 6.0, Python, Java, Docker, AWS Lambda (Container-based), Ubuntu 22, Bash Scripting, Reverse Engineering, APKTool v2.11.0, APKSig, AAPT2, OpenSSL, AWS ECR, AWS ECS (for testing/related infra)</p>
+        </div>
+    </div>
+
+    <!-- Modal: AV-Test Data Collection Automation -->
+      <div class="modal" id="modal-avtest">
+          <button class="close-modal-btn">&times;</button>
+          <div class="modal-content">
+              <h2>🔧 AV-Test Data Collection & Automation (Cloud-Native Solution)</h2>
+              <p><strong>Timeline:</strong> Jan 2023 – Apr 2023 (Associated with Trellix)</p>
+              <p><strong>Role:</strong> Senior Software Engineer</p>
+              <h4>Description:</h4>
+              <p>Designed and developed a fully automated, scalable, and production-grade AV-Test Data Collection Workflow in the cloud using AWS serverless and container technologies to enhance testing efficiency and reliability.</p>
+              <h4>Key features include:</h4>
+              <ul>
+                  <li>Utilized <strong>AWS ECS Fargate + Docker</strong> for isolated, scalable, on-demand container execution, leveraging a shared EFS volume for state/data persistence.</li>
+                  <li>Implemented a <strong>30-minute dynamic data collection interval</strong> with environment-aware parameters passed to containers.</li>
+                  <li>Developed <strong>Delta-based data push logic</strong> using Python/Bash within containers to avoid data duplication and optimize transfer/storage.</li>
+                  <li>Incorporated <strong>random validation checks</strong> during the process to improve data integrity and result accuracy.</li>
+                  <li>Managed the entire infrastructure deployment using <strong>Infrastructure as Code (IaC)</strong> principles (e.g., CloudFormation/Terraform) for consistency and reproducibility.</li>
+                  <li>Configured comprehensive monitoring and alerting via <strong>AWS CloudWatch Events/Logs</strong> triggering <strong>AWS SNS</strong> notifications (Email/SMS) for success/failure status and operational visibility.</li>
+              </ul>
+              <h4>Impact:</h4>
+              <ul>
+                  <li>Significantly reduced manual intervention and operational overhead through full automation.</li>
+                  <li>Improved data quality, consistency, and enabled efficient deduplication through delta logic.</li>
+                  <li>Enabled a 100% cloud-native deployment, improving scalability, resilience, and performance compared to previous methods.</li>
+                  <li>Enhanced overall coverage, reliability, and speed of critical AV-Test data collection processes.</li>
+              </ul>
+               <p class="tech-used"><strong>Tech Used:</strong> AWS Lambda (orchestration/triggering), AWS ECS Fargate, Docker, Python, Bash Scripting, AWS CloudWatch (Logs, Events, Alarms), AWS SNS, AWS EFS (Elastic File System), Infrastructure as Code (IaC - tool unspecified, e.g., Terraform/CloudFormation), AWS IAM</p>
+          </div>
+      </div>
+
+      <!-- Modal: AWS Cost Optimization -->
+    <div class="modal" id="modal-aws-cost-opt">
+        <button class="close-modal-btn">&times;</button>
+        <div class="modal-content">
+            <h2>💰 AWS Cost Optimization & Storage Efficiency</h2>
+            <p><strong>Timeline:</strong> Jul 2021 - Dec 2022 (Associated with FireEye, Inc./Trellix)</p>
+            <p><strong>Role:</strong> Sr. DevOps Engineer / AWS SME</p>
+            <h4>Summary:</h4>
+            <p>Led high-impact initiatives to optimize performance, scalability, and significantly reduce costs across AWS-based data systems (Athena, S3, QuickSight) by re-architecting key data processing and storage workflows.</p>
+            <h4>Key Contributions & Solutions:</h4>
+            <ul>
+                <li>Replaced heavy, costly interactive Athena queries with efficient, automated <strong>Python-based AWS Lambda functions</strong> for batch data processing and aggregation.</li>
+                <li>Implemented data storage optimization using <strong>Parquet file format + Gzip compression</strong>, drastically reducing the S3 storage footprint.</li>
+                <li>Applied intelligent <strong>S3 Lifecycle policies</strong> for data tiering and expiration, coupled with custom metadata-based storage management strategies.</li>
+                <li>Developed and implemented <strong>Delta Data Push</strong> logic in pipelines to minimize redundant data transfer and storage, processing only changed data.</li>
+                <li>Designed and utilized optimized <strong>Metadata Table Designs</strong> (potentially in Glue Data Catalog) to improve query performance against S3 data lakes and reduce data scanned by Athena.</li>
+                <li>Automated the entire optimized pipeline end-to-end, ensuring zero manual intervention and minimal ongoing maintenance overhead.</li>
+                <li>Developed detailed cost estimation models (using tools like QuickSight SPICE/Athena) and implemented proactive SNS-based cost spike and risk alerting systems.</li>
+            </ul>
+            <h4>Impact:</h4>
+            <ul>
+                <li>Reduced AWS Athena usage cost by an estimated <strong>99%</strong> (saving approximately <strong>$70,000 per month</strong>).</li>
+                <li>Cut AWS S3 storage usage by approximately <strong>95%</strong> (saving approximately <strong>$5,000 per month</strong>).</li>
+                <li>Significantly enhanced performance, reliability, and scalability of critical data processing workflows.</li>
+                <li>Improved cost visibility and control through monitoring and alerting.</li>
+            </ul>
+             <p class="tech-used"><strong>Tech Used:</strong> AWS S3, AWS Athena, AWS Lambda, Python, Apache Parquet, Gzip, AWS Glue Data Catalog (implied), AWS S3 Lifecycle Policies, AWS CloudWatch (Metrics, Alarms), AWS SNS, AWS QuickSight (for cost modeling), Data Pipelines, Cost Modeling & Optimization</p>
+        </div>
+    </div>
+
+    <!-- Modal: Dashboard as a Service (DaaS) -->
+    <div class="modal" id="modal-daas">
+        <button class="close-modal-btn">&times;</button>
+        <div class="modal-content">
+             <h2>📊 Dashboard as a Service (DaaS)</h2>
+              <p><strong>Timeline:</strong> Jul 2021 - Mar 2022 (Conceptualized Q4 2021 - Implemented Q1/Q2 2022) (Associated with FireEye, Inc./Trellix)</p>
+              <p><strong>Role:</strong> Solution Designer / Dashboard Developer / AWS SME</p>
+              <h4>Summary:</h4>
+              <p>Architected, developed, and delivered an internal Dashboard as a Service (DaaS) architecture using AWS QuickSight. This unified data visualization efforts, streamlined reporting workflows, and provided a scalable platform to support cross-team analytics needs.</p>
+              <h4>Key Contributions:</h4>
+              <ul>
+                  <li>Proposed and initiated the DaaS architecture to address fragmented reporting.</li>
+                  <li>Designed and built optimized data pipelines (using Lambda, potentially Glue/Step Functions) feeding into <strong>QuickSight SPICE</strong> datasets for enhanced query performance and scalability.</li>
+                  <li>Implemented key DaaS features: on-demand data refresh capabilities triggered via API/schedule, fine-grained user-level access control (leveraging QuickSight namespaces/permissions and integrating READER roles for cost efficiency), and ensured the underlying infrastructure could auto-scale.</li>
+                  <li>Developed centralized systems (likely using Lambda/CloudWatch) for monitoring dashboard usage, SPICE refresh status, and potential costs.</li>
+                  <li>Hosted demo sessions with Pillar Teams, gathered feedback, and iteratively enhanced dashboard usability and features.</li>
+                  <li>Documented DaaS architecture, deployment procedures, and visualization best practices on Confluence for team knowledge sharing.</li>
+              </ul>
+              <h4>Impact:</h4>
+              <ul>
+                  <li>Improved dashboard performance and user experience due to SPICE optimization.</li>
+                  <li>Automated data refresh and user management processes, reducing manual maintenance efforts significantly.</li>
+                  <li>Empowered 100+ users across various teams with self-service analytics capabilities through a unified platform.</li>
+                  <li>Established a scalable, cost-efficient (via READER roles), and maintainable platform for organizational analytics and reporting.</li>
+              </ul>
+               <p class="tech-used"><strong>Tech Used:</strong> AWS QuickSight (including SPICE, Namespaces, Permissions), AWS Lambda, Jenkins (for CI/CD/scheduling), Python, SQL, AWS CloudWatch (Logs, Events), AWS Athena, AWS S3, AWS Glue Data Catalog (likely), Confluence (Documentation)</p>
+        </div>
+    </div>
+
+    <!-- Modal: Quicksight-Okta Integration -->
+      <div class="modal" id="modal-okta-quicksight">
+          <button class="close-modal-btn">&times;</button>
+          <div class="modal-content">
+              <h2>🔐 QuickSight-Okta Integration & Automation</h2>
+               <p><strong>Timeline:</strong> Jul 2021 - Mar 2022 (Mobile specific: Q3 2022) (Associated with FireEye, Inc./Trellix)</p>
+               <p><strong>Role:</strong> Integration Lead / Sr. DevOps Engineer</p>
+              <h4>Summary:</h4>
+              <p>Successfully integrated AWS QuickSight with Okta Single Sign-On (SSO), enabling secure and seamless dashboard access for web and mobile users. Additionally, built a fully automated user provisioning/deprovisioning system to manage access efficiently and reduce costs.</p>
+              <h4>Key Contributions:</h4>
+              <ul>
+                  <li>Configured and implemented one-click <strong>SSO via Okta</strong> SAML integration for AWS QuickSight web application access.</li>
+                  <li>Led the effort to successfully integrate the <strong>QuickSight Mobile App with Okta</strong>, enabling secure, authenticated mobile access to dashboards for stakeholders on-the-go.</li>
+                  <li>Designed and built a <strong>fully automated user provisioning and deprovisioning system</strong> using Python scripts, likely orchestrated by Jenkins or triggered by AWS events (e.g., Lambda responding to Okta events or schedules). This system managed QuickSight user roles dynamically.</li>
+                  <li>Implemented the use of cost-effective QuickSight <strong>READER roles</strong>, assigning them automatically via the provisioning system based on Okta group memberships or requests, saving significant licensing costs compared to Author/Admin roles.</li>
+                  <li>Ensured the integration met compliance, scalability, and security requirements across both web and mobile devices.</li>
+              </ul>
+              <h4>Impact:</h4>
+              <ul>
+                  <li>Saved approximately <strong>$500 per month</strong> in QuickSight licensing fees through dynamic, automated management of user roles (primarily assigning READER roles).</li>
+                  <li>Significantly increased accessibility and ease-of-use for stakeholders needing dashboard access.</li>
+                  <li>Reduced IT and administrative overhead previously required for manual user management in QuickSight.</li>
+                  <li>Extended dashboard usability and real-time insights access to key stakeholders via the mobile app integration.</li>
+              </ul>
+               <p class="tech-used"><strong>Tech Used:</strong> Okta (SAML, API potentially), AWS QuickSight (User Management APIs), Python, Jenkins (Orchestration), Automation Scripts, SSO Concepts, Mobile Application Integration, AWS IAM (for role mapping)</p>
+          </div>
+      </div>
+
+      <!-- Modal: Time & Space Optimization -->
+    <div class="modal" id="modal-pipeline-opt">
+        <button class="close-modal-btn">&times;</button>
+        <div class="modal-content">
+            <h2>⚙️ Time & Space Optimization for Data Pipeline</h2>
+             <p><strong>Timeline:</strong> Jul 2021 - Mar 2022 (Associated with FireEye, Inc.)</p>
+             <p><strong>Role:</strong> Sr. DevOps Engineer</p>
+            <h4>Summary:</h4>
+            <p>Re-engineered a critical build metadata pipeline responsible for fetching data from the TeamCity API and writing it to AWS S3. The refactoring resulted in dramatic improvements in execution time, resource utilization, API efficiency, and code maintainability.</p>
+            <h4>Comparison (Legacy vs. Refactored):</h4>
+            <ul>
+                <li><strong>API Calls:</strong> 4,242 -> <strong>2 (99.95% reduction)</strong></li>
+                <li><strong>Runtime:</strong> ~756 seconds (with multithreading) -> <strong>~17 seconds (single-threaded) (99.22% time savings)</strong></li>
+                <li><strong>Local Disk Usage:</strong> 7 intermediate files / ~10MB -> <strong>0 files / 0 local storage (100% elimination)</strong></li>
+                 <li><strong>Code Complexity:</strong> 3 scripts / ~400 LOC -> <strong>1 script / ~150 LOC (62.5% reduction, improved maintainability)</strong></li>
+            </ul>
+            <h4>Key Achievements:</h4>
+            <ul>
+                <li>Consolidated three separate legacy scripts into a single, streamlined, and highly efficient Python script.</li>
+                <li>Eliminated the creation of intermediate files on the execution host, removing disk I/O bottlenecks and storage requirements.</li>
+                <li>Drastically reduced the number of calls made to the TeamCity REST API by optimizing data fetching logic.</li>
+                <li>Achieved significant runtime reduction even without relying on multithreading, simplifying the execution model.</li>
+                <li>Delivered consistent and accurate results across different environments, ensuring no drop in data quality.</li>
+                <li>🧪 Rigorously benchmark-tested the refactored solution under multiple load scenarios (best and worst-case) to validate performance gains and stability.</li>
+            </ul>
+            <p class="tech-used"><strong>Tech Used:</strong> Python, REST APIs (TeamCity specific), API Interaction Optimization, AWS S3 (Storage target), Performance Engineering, Benchmarking, Code Refactoring</p>
+        </div>
+    </div>
+
+    <!-- Add other modals here if needed -->
+
+
+    <script>
+        // Simple script for modal functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const detailButtons = document.querySelectorAll('.details-btn');
+            const modals = document.querySelectorAll('.modal');
+            const closeModalButtons = document.querySelectorAll('.close-modal-btn');
+            const overlay = document.getElementById('modal-overlay');
+
+            // Function to open a modal
+            function openModal(modal) {
+                if (modal == null) return;
+                modal.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+
+            // Function to close a modal
+            function closeModal(modal) {
+                if (modal == null) return;
+                modal.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Restore background scrolling
+            }
+
+            // Add event listeners to all 'View Details' buttons
+            detailButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const card = button.closest('.project-card');
+                    if (!card) return;
+                    const modalId = card.getAttribute('data-modal-id');
+                    const modal = document.getElementById(modalId);
+                    openModal(modal);
+                });
+            });
+
+            // Add event listeners to all close buttons
+            closeModalButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const modal = button.closest('.modal');
+                    closeModal(modal);
+                });
+            });
+
+            // Add event listener to overlay to close modal on click
+            overlay.addEventListener('click', () => {
+                const activeModals = document.querySelectorAll('.modal.active');
+                activeModals.forEach(modal => {
+                    closeModal(modal);
+                });
+            });
+
+            // Optional: Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    const activeModals = document.querySelectorAll('.modal.active');
+                    activeModals.forEach(modal => {
+                        closeModal(modal);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
